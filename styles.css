@@ -196,6 +196,7 @@ section {
     margin-bottom: 4rem;
     color: var(--primary-color);
     position: relative;
+    width: 100%;
 }
 
 .section-title::after {
@@ -211,24 +212,36 @@ section {
 }
 
 /* Sobre */
-.about-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+.about {
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    width: 100%;
 }
 
 .about-text {
     opacity: 0;
     transform: translateX(-50px);
     animation: fadeInRight 1s ease forwards;
+    text-align: center;
+    margin: 0 auto;
 }
 
 .about-text p {
+    text-align: center;
     margin-bottom: 1.5rem;
     font-size: 1.1rem;
+    color: var(--text-color);
 }
 
 /* Habilidades */
@@ -512,53 +525,135 @@ footer {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
-    .hero h1 {
-        font-size: 2rem;
-    }
-    
-    .hero p {
-        font-size: 1rem;
-    }
-    
+@media (max-width: 1024px) {
     .about-content {
         grid-template-columns: 1fr;
         gap: 2rem;
+        padding: 0 1rem;
     }
-    
     .projects-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+        padding: 1rem;
     }
-    
-    .contact-info {
-        flex-direction: column;
-        align-items: center;
+    .skills-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+        padding: 0.5rem;
     }
-    
-    .contact-item {
-        width: 100%;
-        justify-content: center;
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 1rem 0;
     }
-    
     .nav-links {
         position: fixed;
-        top: 70px;
+        top: 60px;
         left: 0;
         width: 100%;
         background-color: var(--bg-color);
-        padding: 1rem;
         flex-direction: column;
         align-items: center;
-        transform: translateY(-100%);
-        transition: transform 0.3s ease;
+        gap: 1.5rem;
+        padding: 1rem 0;
+        z-index: 999;
+        display: none;
     }
-
     .nav-links.active {
-        transform: translateY(0);
+        display: flex;
     }
-
+    .hero {
+        padding: 100px 1rem 2rem;
+    }
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+    .hero p {
+        font-size: 1rem;
+    }
+    .section-title {
+        font-size: 1.3rem;
+        margin-bottom: 2rem;
+    }
+    .about-content {
+        padding: 0 0.5rem;
+    }
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 0;
+    }
+    .skills-category h3 {
+        font-size: 1.1rem;
+    }
+    .skill-item {
+        padding: 1rem;
+    }
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 0;
+    }
     .project-card {
-        max-width: 100%;
+        padding: 0.5rem;
+    }
+    .project-info {
+        padding: 1rem 0.5rem;
+    }
+    .contact-content {
+        padding: 0 0.5rem;
+    }
+    .contact-info {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .contact-item {
+        width: 100%;
+        justify-content: center;
+        padding: 0.8rem 1rem;
+        font-size: 0.95rem;
+    }
+    footer {
+        padding: 1rem;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 80px 0.5rem 1rem;
+    }
+    .hero h1 {
+        font-size: 1.1rem;
+    }
+    .about-content, .skills-container, .projects-grid, .contact-content {
+        padding: 0;
+    }
+    .skills-category h3 {
+        font-size: 1rem;
+    }
+    .skill-item {
+        padding: 0.7rem;
+    }
+    .project-info h3 {
+        font-size: 1rem;
+    }
+    .project-info p {
+        font-size: 0.85rem;
+    }
+    .project-details h4 {
+        font-size: 0.95rem;
+    }
+    .project-details li {
+        font-size: 0.85rem;
+    }
+    .contact-item {
+        font-size: 0.9rem;
+        padding: 0.6rem 0.5rem;
+    }
+    .social-link {
+        font-size: 1.1rem;
     }
 }
 
